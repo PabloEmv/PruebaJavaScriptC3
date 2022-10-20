@@ -43,6 +43,18 @@ const dia7 = 'domingo';
 var diaDeLaSemana = 'lunes';
 const productosValores = [10001, 300, 500, 1000];
 var valorFinal = 0;
+var numerosPositivos = true;
+
+// verificar si hay numeros negativos
+for (let i = 0; i < productosValores.length; i++) {
+    if (productosValores[i] < 0) {
+    
+        var numeroN = productosValores.indexOf(productosValores[i]);
+        console.log('Error, en el índice ' + numeroN + ' está el número negativo :' + productosValores[i]);
+        numerosPositivos = false;
+        break;
+    }
+}
 
 // función para calcular el total
 function calcularTotal(diaDeLaSemana, productosValores) {
@@ -65,20 +77,31 @@ function calcularTotal(diaDeLaSemana, productosValores) {
     } else {
         valorFinal = valorTotal;
     }
+    console.log(valorFinal);
+    console.log('Éxito');
 }
 
-calcularTotal(diaDeLaSemana,productosValores);
-console.log(valorFinal);
+const productosValores2 = [200,5500,900,7000,500,300];
+var n = productosValores2[0];
+var o = productosValores2[0];
 
-var n = 0;
-
+// función para verificar numeros mayores y menores
 function numMax(x) {
     for (let i = 0; i < x.length; i++) {
 
         if (x[i] > n) {
             n = x[i];
         }
+        if (x[i] < o) {
+            o = x[i];
+        }
     }
 }
-numMax(productosValores);
-console.log(numMax)
+
+if (numerosPositivos) {
+    calcularTotal(diaDeLaSemana, productosValores);
+}
+// verificar numeros mayores y menores
+numMax(productosValores2);
+    console.log(n + ' Es el número mayor');
+    console.log(o + ' Es el número menor');
